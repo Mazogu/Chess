@@ -2,8 +2,8 @@ package com.chess;
 
 public abstract class Piece {
 	public abstract Space[] possibleMoves();
-	private Player player;
-	private Board board;
+	protected Player player;
+	protected Board board;
 	public void move(Space space){
 		space.setPiece(this);
 	}
