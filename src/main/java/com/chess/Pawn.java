@@ -1,5 +1,7 @@
 package com.chess;
 
+import java.util.ArrayList;
+
 /**
  * @author Michael Azogu
  * @version 1.0
@@ -13,14 +15,15 @@ public class Pawn extends Piece {
 	 * @param player
 	 * @param board
 	 */
-	public Pawn(Player player, Board board){
-		super.player = player;
+	public Pawn(Player player, Board board, Color color){
+		super(player,board,color);
 		this.player = player;
-		super.board = board;
 		this.board = board;
+		this.color = color;
 	}
+	
 	@Override
-	public Space[] possibleMoves() {
+	public ArrayList<Space> possibleMoves() {
 		// TODO Auto-generated method stub
 		return null;
 	}
