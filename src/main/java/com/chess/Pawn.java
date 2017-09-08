@@ -8,18 +8,34 @@ import java.util.ArrayList;
  */
 public class Pawn extends Piece {
 	
-	protected Player player;
-	protected Board board;
+	private Player player;
+	private Space space;
+	private boolean firstMove;
 	/**
 	 * Represents a pawn in chess
 	 * @param player
 	 * @param board
 	 */
-	public Pawn(Player player, Board board, Color color){
-		super(player,board,color);
+	public Pawn(Player player, Space space, Color color){
+		super(player,space,color);
 		this.player = player;
-		this.board = board;
+		this.space = space;
 		this.color = color;
+		firstMove = true;
+	}
+	/**
+	 * Determines that a pawn has moved. 
+	 */
+	public void hasMoved(){
+		firstMove = false;
+	}
+	
+	/**
+	 * Returns a boolean based on whether or not this Pawn has moved at least once this game. 
+	 * @return
+	 */
+	public boolean hasMovedOnce(){
+		return !firstMove;
 	}
 	
 	@Override

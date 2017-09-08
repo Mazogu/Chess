@@ -4,7 +4,7 @@ import java.util.ArrayList;
 public abstract class Piece {
 	public abstract ArrayList<Space> possibleMoves();
 	protected Player player;
-	protected Board board;
+	protected Space space;
 	protected Color color;
 	/**
 	 * Represents any chess piece. 
@@ -12,9 +12,9 @@ public abstract class Piece {
 	 * @param board
 	 * @param color
 	 */
-	public Piece(Player player, Board board, Color color){
+	public Piece(Player player, Space space, Color color){
 		this.player = player;
-		this.board = board;
+		this.space = space;
 		this.color = color;
 		
 	}
@@ -24,12 +24,20 @@ public abstract class Piece {
 	 */
 	public void move(Space space){
 		space.setPiece(this);
+		setSpace(space);
 	}
 	/**
-	 * returns Game Board
+	 * Sets the pieces space to the space it just moved to. 
+	 * @param space
+	 */
+	private void setSpace(Space space){
+		this.space = space;
+	}
+	/**
+	 * returns the space the piece is occupying
 	 * @return
 	 */
-	public Board getBoard(){return board;}
+	public Space getSpace(){return space;}
 	/**
 	 * Returns the player that owns piece
 	 * @return
